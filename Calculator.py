@@ -39,12 +39,10 @@ def add_button_to_box(box, is_left_most, text, width=BUTTON_WIDTH):
 def create_display(box):
     global display_label
 
-    display_box = toga.Box(style=Pack(text_align=RIGHT))
     display_label = toga.Label("0", style=Pack(text_align=RIGHT,
-                                               height=DISPLAY_HEIGHT, font_size=40, font_weight="normal"))
+                                               font_size=40, font_weight="normal", padding_right=BUTTON_PADDING, padding_top=BUTTON_PADDING*4, padding_bottom=BUTTON_PADDING*1.7))
 
-    display_box.add(display_label)
-    box.add(display_box)
+    box.add(display_label)
 
 
 def create_main_window_content(app):
