@@ -13,8 +13,8 @@ WINDOW_HEIGHT = DISPLAY_HEIGHT + 5*BUTTON_WIDTH + BUTTON_PADDING*6
 display_label = None
 
 
-def on_click(widget):
-    print("clicked", widget.id)
+def on_click(button):
+    display_label.text = button.id
 
 
 def add_button_to_box(box, is_left_most, text, width=BUTTON_WIDTH):
