@@ -10,11 +10,16 @@ DISPLAY_HEIGHT = 80
 WINDOW_WIDTH = 4*BUTTON_WIDTH + 5*BUTTON_PADDING
 WINDOW_HEIGHT = DISPLAY_HEIGHT + 5*BUTTON_WIDTH + BUTTON_PADDING*6
 
+
 display_label = None
 
 
 def on_click(button):
-    display_label.text = button.id
+    if button.id in "0123456789":
+        if display_label.text == "0":
+            display_label.text = button.id
+        else:
+            display_label.text += button.id
 
 
 def add_button_to_box(box, is_left_most, text, width=BUTTON_WIDTH):
