@@ -46,7 +46,6 @@ def create_display(box):
             text_align=RIGHT,
             font_size=40,
             font_weight="normal",
-            color="#AA00FF",
             padding_right=BUTTON_PADDING,
             padding_top=BUTTON_PADDING*4,
             padding_bottom=BUTTON_PADDING*1.7
