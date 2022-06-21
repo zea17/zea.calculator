@@ -31,6 +31,8 @@ def add_button_to_box(box, is_left_most, text, width=BUTTON_WIDTH):
             padding=BUTTON_PADDING,
             padding_left=left_padding,
             padding_top=0,
+            font_size=19,
+
         ),
     )
     box.add(button)
