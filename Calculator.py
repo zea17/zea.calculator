@@ -21,6 +21,10 @@ def on_click(button):
         else:
             display_label.text += button.id
 
+    if button.id == ".":
+        if "." not in display_label.text:
+            display_label.text += "."
+
 
 def add_button_to_box(box, is_left_most, text, width=BUTTON_WIDTH):
     left_padding = 0
