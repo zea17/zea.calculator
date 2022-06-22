@@ -10,11 +10,13 @@ DISPLAY_HEIGHT = 80
 WINDOW_WIDTH = 4*BUTTON_WIDTH + 5*BUTTON_PADDING
 WINDOW_HEIGHT = DISPLAY_HEIGHT + 5*BUTTON_WIDTH + BUTTON_PADDING*6
 
+stack = []
 
 display_label = None
 
 
 def on_click(button):
+
     if button.id in "0123456789":
         if display_label.text == "0":
             display_label.text = button.id
@@ -24,6 +26,16 @@ def on_click(button):
     if button.id == ".":
         if "." not in display_label.text:
             display_label.text += "."
+
+    if button.id in "+÷-×":
+        stack.append(float(display_label.text))
+        stack.append(button.id)
+        display_label.text = "0"
+
+    if button.id == "=":
+        stack.append(float(display_label.text))
+
+    print(stack)
 
 
 def add_button_to_box(box, is_left_most, text, width=BUTTON_WIDTH):
