@@ -15,6 +15,21 @@ stack = []
 display_label = None
 
 
+def compute():
+    global stack
+    for i in range(0, len(stack)):
+        if stack[i] in "÷×":
+            op = stack[i]
+            left = stack[i - 1]
+            right = stack[i + 1]
+            result = 0
+            if op == "÷":
+                result = left / right
+            else:
+                result = left * right
+            stack = stack[:i - 1] + [result] + stack[i + 2:]
+
+
 def on_click(button):
 
     if button.id in "0123456789":
@@ -34,7 +49,7 @@ def on_click(button):
 
     if button.id == "=":
         stack.append(float(display_label.text))
-
+        compute()
     print(stack)
 
 
