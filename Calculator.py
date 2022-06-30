@@ -12,6 +12,9 @@ WINDOW_HEIGHT = DISPLAY_HEIGHT + 5*BUTTON_WIDTH + BUTTON_PADDING*6
 
 stack = []
 
+current_number = "0"
+
+
 display_label = None
 
 
@@ -45,7 +48,8 @@ def on_click(button):
     if button.id in "+÷-×":
         stack.append(float(display_label.text))
         stack.append(button.id)
-        display_label.text = "0"
+        current_number = "0"
+        display_label.text = current_number
 
     if button.id == "=":
         stack.append(float(display_label.text))
