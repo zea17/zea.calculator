@@ -19,9 +19,12 @@ display_label = None
 
 
 def compute():
+
     global stack
-    for i in range(0, len(stack)):
-        if stack[i] in "÷×":
+    size = len(stack)
+    i = 0
+    while i < size:
+        if stack[i] == "÷" or stack[i] == "×":
             op = stack[i]
             left = stack[i - 1]
             right = stack[i + 1]
@@ -29,8 +32,12 @@ def compute():
             if op == "÷":
                 result = left / right
             else:
+                print("left", left, "right", right)
                 result = left * right
             stack = stack[:i - 1] + [result] + stack[i + 2:]
+        i += 1
+        size -= 2
+    return stack
 
 
 def on_click(button):
@@ -53,11 +60,12 @@ def on_click(button):
 
     if button.id == "=":
         stack.append(float(display_label.text))
-        compute()
+        print(compute())
     print(stack)
 
 
 def add_button_to_box(box, is_left_most, text, width=BUTTON_WIDTH):
+
     left_padding = 0
     if is_left_most:
         left_padding = BUTTON_PADDING
