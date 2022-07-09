@@ -100,9 +100,9 @@ def create_main_window_content(app):
     box = toga.Box(style=Pack(direction=COLUMN))
     create_display(box)
     line_1 = toga.Box()
-    add_button_to_box(line_1, True, "⌫")
+    add_button_to_box(line_1, True, "AC")
+    add_button_to_box(line_1, False, "⌫")
     add_button_to_box(line_1, False, "±")
-    add_button_to_box(line_1, False, "%")
     add_button_to_box(line_1, False, "÷")
     box.add(line_1)
 
