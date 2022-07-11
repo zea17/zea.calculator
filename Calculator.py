@@ -41,28 +41,37 @@ def compute():
     return stack
 
 
+previously_clicked = ""
+
+
 def on_click(button):
+
+    global previously_clicked
 
     if button.id in "0123456789":
         if display_label.text == "0":
             display_label.text = button.id
         else:
             display_label.text += button.id
+        previously_clicked = button.id
 
     if button.id == ".":
         if "." not in display_label.text:
             display_label.text += "."
+        previously_clicked = button.id
 
     if button.id in "+÷-×":
         stack.append(float(display_label.text))
         stack.append(button.id)
         current_number = "0"
         display_label.text = current_number
+        previously_clicked = button.id
 
-    if button.id == "=":
+    if button.id == "=" and previously_clicked != "=":
         stack.append(float(display_label.text))
         print(compute())
     print(stack)
+    previously_clicked = button.id
 
 
 def add_button_to_box(box, is_left_most, text, width=BUTTON_WIDTH):
