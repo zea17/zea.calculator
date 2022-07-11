@@ -49,8 +49,13 @@ def compute():
             result += stack[j]
         if stack[j-1] == "-":
             result -= stack[j]
-    print(result)
-    return stack
+    stack = []
+    return result
+
+
+def bsp():
+
+    display_label.text = display_label.text[:len(display_label.text)-1]
 
 
 previously_clicked = ""
@@ -81,9 +86,12 @@ def on_click(button):
 
     if button.id == "=" and previously_clicked != "=":
         stack.append(float(display_label.text))
-        print(compute())
-    print(stack)
-    previously_clicked = button.id
+
+        display_label.text = compute()
+        previously_clicked = button.id
+
+    if button.id == "⌫":
+        print(bsp())
 
 
 def add_button_to_box(box, is_left_most, text, width=BUTTON_WIDTH):
