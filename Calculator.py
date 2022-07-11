@@ -35,8 +35,9 @@ def compute():
                 print("left", left, "right", right)
                 result = left * right
             stack = stack[:i - 1] + [result] + stack[i + 2:]
+            size -= 2
         i += 1
-        size -= 2
+
     return stack
 
 
