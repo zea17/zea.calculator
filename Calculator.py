@@ -1,5 +1,6 @@
 import toga
 from toga.style.pack import COLUMN, Pack, RIGHT
+import re
 
 BUTTON_WIDTH = 55
 BUTTON_HEIGHT = 45
@@ -88,6 +89,7 @@ def on_click(button):
         stack.append(float(display_label.text))
 
         display_label.text = compute()
+        display_label.text = re.sub(r"\.0+$", "", display_label.text)
         previously_clicked = button.id
 
     if button.id == "⌫":
