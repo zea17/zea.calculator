@@ -20,8 +20,15 @@ display_label = None
 
 
 def compute():
-
+    """
+    Compute gets the currently populated stack and
+    computes the final result of it. before returning
+    it empties the stack and return th result.
+    """
     global stack
+
+    # phase 1
+    # in this phase of the computation, the algorithm moves on the
     size = len(stack)
     i = 0
 
@@ -53,6 +60,8 @@ def compute():
     stack = []
     return result
 
+
+# ─── Delete Rightmost Character And Recalculate ─────────────────────────────────
 
 def bsp():
 
