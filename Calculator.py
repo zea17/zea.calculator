@@ -29,6 +29,13 @@ def compute():
 
     # phase 1
     # in this phase of the computation, the algorithm moves on the
+    # computation stack and reduces the multiplications and divisions.
+    # for example, lets say we have: [1, "+", 2, "*", 3 ], the
+    # algorithm moves on the stack, and when it gets into the i = 3
+    # the current index will map to the value "*", it then computes:
+    # stack[i - 1] * stack[i + 1] and the replaces the 3 places within
+    # the stack with the new "6". doing so it also decreases the size
+    # by 2 since [2, "*", 3] is now [6]
     size = len(stack)
     i = 0
 
