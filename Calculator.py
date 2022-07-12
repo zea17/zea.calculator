@@ -15,8 +15,10 @@ stack = []
 
 current_number = "0"
 
-
 display_label = None
+previously_clicked = ""
+
+# ─── Compute ────────────────────────────────────────────────────────────────────
 
 
 def compute():
@@ -68,48 +70,60 @@ def compute():
     return result
 
 
-# ─── Delete Rightmost Character And Recalculate ─────────────────────────────────
+# ─── Backspace ──────────────────────────────────────────────────────────────────
+
 
 def bsp():
+    """
+    Delete Rightmost Character And Recalculate
+    """
 
     display_label.text = display_label.text[:len(display_label.text)-1]
 
 
-previously_clicked = ""
+# ─── Event Handling ─────────────────────────────────────────────────────────────
 
 
 def on_click(button):
-
+    """
+    on_click is the main event handler for all buttons in the
+    calculator. it detects the button by the `button.id` and
+    performs the necessary actions.
+    """
     global previously_clicked
 
+    # on the case of number buttons
     if button.id in "0123456789":
+        # display number is 0, replace with newly clicked
         if display_label.text == "0":
             display_label.text = button.id
+        # otherwise append to the previous number
         else:
             display_label.text += button.id
-        previously_clicked = button.id
 
     if button.id == ".":
+        # only add a decimal place if we don't have it already
         if "." not in display_label.text:
             display_label.text += "."
-        previously_clicked = button.id
 
     if button.id in "+÷-×":
         stack.append(float(display_label.text))
         stack.append(button.id)
         current_number = "0"
         display_label.text = current_number
-        previously_clicked = button.id
 
     if button.id == "=" and previously_clicked != "=":
         stack.append(float(display_label.text))
 
         display_label.text = compute()
         display_label.text = re.sub(r"\.0+$", "", display_label.text)
-        previously_clicked = button.id
 
     if button.id == "⌫":
         print(bsp())
+
+    previously_clicked = button.id
+
+# ─── Add Button To Box ──────────────────────────────────────────────────────────
 
 
 def add_button_to_box(box, is_left_most, text, width=BUTTON_WIDTH):
