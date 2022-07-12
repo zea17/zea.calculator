@@ -91,6 +91,7 @@ def on_click(button):
     performs the necessary actions.
     """
     global previously_clicked
+    global stack
 
     # on the case of number buttons
     if button.id in "0123456789":
@@ -120,6 +121,10 @@ def on_click(button):
 
     if button.id == "⌫":
         print(bsp())
+
+    if button.id == "AC":
+        stack = []
+        display_label.text = ""
 
     previously_clicked = button.id
 
