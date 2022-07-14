@@ -70,6 +70,22 @@ def compute():
     return result
 
 
+# ─── Negation Button ────────────────────────────────────────────────────────────
+
+
+def negation():
+    number = float(display_label.text)
+    number *= -1
+    set_display_text(number)
+
+
+def set_display_text(x):
+    global display_label
+    string_value = str(x)
+    no_zeros = re.sub(r"\.0+$", "", string_value)
+    display_label.text = no_zeros
+
+
 # ─── Backspace ──────────────────────────────────────────────────────────────────
 
 
@@ -97,7 +113,7 @@ def on_click(button):
     if button.id in "0123456789":
         # display number is 0, replace with newly clicked
         if display_label.text == "0":
-            display_label.text = button.id
+            set_display_text(button.id)
         # otherwise append to the previous number
         else:
             display_label.text += button.id
@@ -111,13 +127,12 @@ def on_click(button):
         stack.append(float(display_label.text))
         stack.append(button.id)
         current_number = "0"
-        display_label.text = current_number
+        set_display_text(current_number)
 
     if button.id == "=" and previously_clicked != "=":
         stack.append(float(display_label.text))
 
-        display_label.text = compute()
-        display_label.text = re.sub(r"\.0+$", "", display_label.text)
+        set_display_text(compute())
 
     if button.id == "⌫":
         print(bsp())
@@ -125,6 +140,9 @@ def on_click(button):
     if button.id == "AC":
         stack = []
         display_label.text = ""
+
+    if button.id == "±":
+        negation
 
     previously_clicked = button.id
 
