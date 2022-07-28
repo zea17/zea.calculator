@@ -111,7 +111,7 @@ def on_click(button):
     # on the case of number buttons
     if button.id in "0123456789":
         # display number is 0, replace with newly clicked
-        if display_label.text == "0":
+        if display_label.text in "+÷-×0":
             set_display_text(button.id)
         # otherwise append to the previous number
         else:
@@ -125,7 +125,7 @@ def on_click(button):
     if button.id in "+÷-×":
         stack.append(float(display_label.text))
         stack.append(button.id)
-        current_number = "0"
+        current_number = button.id
         set_display_text(current_number)
 
     if button.id == "=" and previously_clicked != "=":
