@@ -141,7 +141,7 @@ def on_click(button):
         display_label.text = ""
 
     if button.id == "±":
-        negation
+        negation()
 
     previously_clicked = button.id
 
