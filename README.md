@@ -9,3 +9,32 @@ This is a simple calculator program written in Python using the Toga GUI toolkit
 
 ## Getting Started
 To use this program, you will need to have Python and Toga installed on your computer. You can download Python from the official website: https://www.python.org/downloads/ and install Toga by running the following command:
+```sh
+pip install toga
+```
+Once you have Python and Toga installed, you can run the program by opening a terminal or command prompt and navigating to the directory where the program is located. Then, run the following command:
+
+```bash
+# clone the ripo
+git clone https://github.com/zea17/zea.calculator.git ZeaCalc
+
+# cd into it
+cd ZeaCalc
+
+# now run it
+python3 ./calculator.py
+```
+## Usage
+
+The program will display a simple GUI with buttons for each arithmetic operation. Click on the button for the operation you want to perform, enter the two numbers, and click the "Calculate" button. The result will be displayed in the output field
+
+## Contributing
+If you would like to contribute to this project, feel free to submit a pull request. Please make sure to follow the code style and include tests for any new features.
+
+## License
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgments
+
+ * This program was inspired by the calculator app on my phone.
+*  Thanks to the Toga community for creating such a great GUI toolkit.
