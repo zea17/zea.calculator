@@ -5,7 +5,7 @@
 
 
 
-This is a simple calculator program written in Python using the Toga GUI toolkit. It can perform basic arithmetic operations such as addition, subtraction, multiplication, and division.
+
 
 ## Getting Started
 To use this program, you will need to have Python and Toga installed on your computer. You can download Python from the official website: https://www.python.org/downloads/ and install Toga by running the following command:
