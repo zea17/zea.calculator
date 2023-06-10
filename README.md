@@ -32,7 +32,7 @@ The program will display a simple GUI with buttons for each arithmetic operation
 If you would like to contribute to this project, feel free to submit a pull request. Please make sure to follow the code style and include tests for any new features.
 
 ## License
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the GNU GENERAL PUBLIC License V3 as published by the Free Software Foundation (fsf.org) - see the LICENSE file for details.
 
 ## Acknowledgments
 
